@@ -28,10 +28,10 @@ const Header = () => {
             <li>Profile</li>
             <li>Projects</li>
             <li>Contact</li>
-            <img src="/public/img/sun.svg" alt="" />
+            <img src="/img/sun.svg" alt="" />
           </ul>
         </nav>
-      ) : <img src="/public/img/burger.svg" alt="" />}
+      ) : <img src="/img/burger.svg" alt="burger" />}
     </header>
   );
 };
