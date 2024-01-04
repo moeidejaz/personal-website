@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+import sun from "/img/sun.svg";
+import moon from "/img/moon.svg";
 import styles from "../styles/header.module.css";
+import SwitchTheme from "../utils/ThemeSwitcher";
 
 const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     // Function to update window width
@@ -19,19 +23,36 @@ const Header = () => {
     };
   }, []);
 
+  function toggleMode() {
+    setDarkMode(!darkMode);
+  }
+
+  useEffect(() => {
+    SwitchTheme(darkMode);
+  }, [darkMode]);
+
   return (
     <header>
-      <h2>Abdul Moeid</h2>
+      <h2>Abdul Moeid.</h2>
       {windowWidth > 490 ? (
         <nav>
           <ul>
             <li>Profile</li>
             <li>Projects</li>
             <li>Contact</li>
-            <img src="/img/sun.svg" alt="" />
+            <img
+              src={darkMode ? sun : moon}
+              onClick={toggleMode}
+              style={{
+                cursor: "pointer",
+                transition: "transform 0.2s ease-in-out",
+              }}
+            />
           </ul>
         </nav>
-      ) : <img src="/img/burger.svg" alt="burger" />}
+      ) : (
+        <img src="/img/burger.svg" alt="burger" />
+      )}
     </header>
   );
 };
