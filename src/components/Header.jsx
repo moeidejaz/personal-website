@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import sun from "/img/sun.svg";
-import moon from "/img/moon.svg";
+import {sun , moon , burger} from "../utils/NamedExports";
 import styles from "../styles/header.module.css";
 import SwitchTheme from "../utils/ThemeSwitcher";
 
@@ -51,7 +50,7 @@ const Header = () => {
           </ul>
         </nav>
       ) : (
-        <img src="/img/burger.svg" alt="burger" />
+        <img src={burger} alt="burger" />
       )}
     </header>
   );
