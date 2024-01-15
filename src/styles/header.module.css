@@ -15,6 +15,25 @@ header>nav>ul {
     gap: 1rem;
 }
 
-li {
+.bg {
+    background-color: #14131368;
+}
+
+header>nav>ul>li:hover {
     cursor: pointer;
+}
+
+.burger {
+    -webkit-mask-image: url("/img/burger.svg");
+    mask-image: url("/img/burger.svg");
+    -webkit-mask-size: 30px 30px;
+    mask-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 450px){
+    header {
+    padding: 2rem 1.5rem;
+    }
 }

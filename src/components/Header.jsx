@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import {sun , moon , burger} from "../utils/NamedExports";
+import React, { useState, useEffect, useContext } from "react";
+import { sun, moon, burger } from "../utils/NamedExports";
 import styles from "../styles/header.module.css";
-import SwitchTheme from "../utils/ThemeSwitcher";
+import { Context } from "../../App";
 
 const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [darkMode, setDarkMode] = useState(true);
-
+  const { toggleMode, toggleMenu, darkMode } = useContext(Context);
+  
   useEffect(() => {
     // Function to update window width
     const handleResize = () => {
@@ -21,14 +21,6 @@ const Header = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  function toggleMode() {
-    setDarkMode(!darkMode);
-  }
-
-  useEffect(() => {
-    SwitchTheme(darkMode);
-  }, [darkMode]);
 
   return (
     <header>
@@ -50,7 +42,15 @@ const Header = () => {
           </ul>
         </nav>
       ) : (
-        <img src={burger} alt="burger" />
+        <img
+          className={styles.burger}
+          onClick={toggleMenu}
+          style={{
+            backgroundColor: darkMode
+              ? "var(--text-color)"
+              : "var(--text-color)",
+          }}
+        />
       )}
     </header>
   );

@@ -5,11 +5,12 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease-in-out;
 }
 
 :root {
   --body-bg-color: #181A1B;
-  --font-color: #FFFFFF;
+  --text-color: #FFFFFF;
   --scroll-bar-track-color: #181A1B;
   --scroll-bar-thumb-color: #ffffffa8;
   --scroll-bar-thumb-hover-color: #ccc;
@@ -19,9 +20,8 @@
 body {
   font-family: 'Raleway', sans-serif;
   background-color: var(--body-bg-color);
-  color: var(--font-color);
+  color: var(--text-color);
   transition: background-color 0.3s ease-in-out;
-  min-height: 300vh;
 }
 
 ::-webkit-scrollbar {
@@ -47,6 +47,6 @@ body {
 
 @media (max-width: 800px){
   body {
-    padding: 0 1rem;
+    margin: 0 0;
   }
 }
